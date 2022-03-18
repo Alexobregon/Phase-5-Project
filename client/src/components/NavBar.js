@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
+import { Button, Nav, Navbar, Container } from 'react-bootstrap';
+
+
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
@@ -11,21 +14,33 @@ function NavBar({ user, setUser }) {
   }
 
   return (
+    
+    <div className="App">
+      <Navbar bg="dark" variant="dark">
+      <Container>
     <header>
       <div>
-        <Link to="/">Home</Link>
+  
+      
+      <Nav.Link as={Link} to="/">Home</Nav.Link>
       </div>
+      
       <div>
         {user ? (
-          <button onClick={handleLogoutClick}>Logout</button>
+          <Button onClick={handleLogoutClick}>Logout</Button>
         ) : (
           <>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
+            <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
+            
+            <Nav.Link as={Link} to="/login">Login</Nav.Link>
           </>
         )}
       </div>
     </header>
+    </Container>
+    </Navbar>
+    </div>
+    
   );
 }
 
