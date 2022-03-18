@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import { Navbar } from "react-bootstrap";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,12 +22,12 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar  bg="dark" variant="dark" user={user} setUser={setUser} />
       <main>
         {user ? (
           <Switch>
             <Route path="/">
-              <Home user={user}/>
+              <Home  user={user}/>
             </Route>
           </Switch>
         ) : (
@@ -39,6 +42,7 @@ function App() {
               <Home />
             </Route>
           </Switch>
+          
         )}
       </main>
     </>
