@@ -18,25 +18,34 @@ function NavBar({ user, setUser }) {
     <div className="App">
       <Navbar bg="dark" variant="dark">
       <Container>
+      <Nav className="nav justify-content-center" activeKey="/home">
     <header>
-      <div>
-  
       
       <Nav.Link as={Link} to="/">Home</Nav.Link>
-      </div>
-      
+     
+
       <div>
         {user ? (
-          <Button onClick={handleLogoutClick}>Logout</Button>
+          <Button variant="success" onClick={handleLogoutClick}>Logout</Button>
         ) : (
           <>
-            <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
-            
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+            <ul className="nav justify-content-end">
+  
+  <li className="nav-item">
+  <Nav.Link className="nav-link" as={Link} to="/signup">Signup</Nav.Link>
+  </li>
+  <li className="nav-item">
+  <Nav.Link className="nav-link" as={Link} to="/login">Login</Nav.Link>
+  </li>
+ 
+</ul>
+
+
           </>
         )}
       </div>
     </header>
+    </Nav>
     </Container>
     </Navbar>
     </div>
@@ -45,3 +54,4 @@ function NavBar({ user, setUser }) {
 }
 
 export default NavBar;
+

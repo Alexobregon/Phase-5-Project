@@ -6,6 +6,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import { Navbar } from "react-bootstrap";
+import "./App.css";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-      <NavBar  bg="dark" variant="dark" user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} />
       <main>
         {user ? (
           <Switch>
