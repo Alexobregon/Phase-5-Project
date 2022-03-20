@@ -21,11 +21,11 @@ function NavBar({ user, setUser }) {
       <Nav className="nav justify-content-center" activeKey="/home">
     <header>
       <Nav.Link as={Link} to="/">Home</Nav.Link>
-      {user ? <Link to="/store">Store</Link> : null}
+      {user ? <Nav.Link as={Link} to="/store">Store</Nav.Link> : null}
       <div>
         {user ? (
           <>
-          <Link to="/cart">Cart</Link>
+          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
           <Button variant="success" onClick={handleLogoutClick}>Logout</Button>
           </>
         ) : (
