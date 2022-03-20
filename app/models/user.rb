@@ -8,9 +8,13 @@ class User < ApplicationRecord
 
     def cart_sum
         if self.carts.length > 0
-        return self.carts.sum { |c| c.item.price }
+        return self.carts.sum { |c| c.product.price }
         else
            return 0
         end
        end
+
+       def cart
+        self.products
+      end
 end
