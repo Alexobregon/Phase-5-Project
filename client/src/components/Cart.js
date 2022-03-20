@@ -16,7 +16,19 @@ function Cart({ user }) {
     const cards = cart.map((item) => {
       return <CartCard key={item.id} item={item}/>
     })
-    return (<> {cards} </> )
+    return (
+        <div className="cart">
+          <h1 className="cartTitle">CART</h1>
+          {cards}
+          <hr className="totalLine"></hr>
+          <span>
+            <b className="cartTotal">Total:</b>
+            <b className="cartTotal" style={{ marginLeft: "75%" }}>
+              ${user.cart_sum}.00
+            </b>
+          </span>
+        </div>
+      );
 }
 
 export default Cart;
