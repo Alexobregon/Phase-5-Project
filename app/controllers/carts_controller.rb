@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
     def index
-        render json: Cart.all
+        cart = Cart.all
+        render json: cart
     end
 
     def create
