@@ -23,7 +23,7 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
 
   console.log(image_url);
   return (
-    <div className="card mb-3" style={{width: "700px", height: "170px" }} >
+    <div className="card mb-3" style={{width: "620px", height: "170px" }} >
   <div className="row no-gutters">
     <div className="col-md-4">
     <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
