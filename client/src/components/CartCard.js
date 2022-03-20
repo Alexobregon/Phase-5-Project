@@ -31,8 +31,8 @@ function CartCard({ item, cart_id, setCart, user_id }) {
               <div class="card-content">
                 <span class="card-title">
                     <b>{item.name}</b>
-                    <b style={{marginLeft: "20px"}}>${item.price}.00</b>
-                    <Button variant="success" class="btn" onClick={handleDeleteClick}>Delete</Button>
+                    <b style={{marginLeft: "20px", marginRight: "20px"}}>${item.price}.00</b>
+                    <Button variant="success" id="delete-btn" className="btn" onClick={handleDeleteClick}>Delete</Button>
                 </span>
     
                 <p>{item.description}</p>
