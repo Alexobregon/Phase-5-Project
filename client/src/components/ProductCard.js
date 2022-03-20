@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from 'react-bootstrap'
 
 function ProductCard({ item: { name, price, description, image_url, id }, user }) {
 
@@ -22,8 +23,30 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
 
   console.log(image_url);
   return (
-    <div className="card">
-      <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
+    <div className="card mb-3" style={{width: "700px", height: "170px" }} >
+  <div className="row no-gutters">
+    <div className="col-md-4">
+    <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
+    </div>
+    <div className="col-md-8">
+      <div className="card-body">
+      <b>{name}</b>
+      <p>{description}</p>
+        <b>${price}.00</b>
+         <Button variant="success" style={{marginLeft: "20px"}} onClick={handleclick}>Add to cart</Button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  );
+}
+
+export default ProductCard;
+
+{/* <div className="card">
+      <img src={image_url} alt="Avatar" style={{ width: "20%" }}></img>
       <div className="container">
         <h4>
           <span>
@@ -37,6 +60,4 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
       </div>
     </div>
   );
-}
-
-export default ProductCard;
+} */}
