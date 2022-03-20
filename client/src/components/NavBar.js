@@ -20,17 +20,17 @@ function NavBar({ user, setUser }) {
       <Container>
       <Nav className="nav justify-content-center" activeKey="/home">
     <header>
-      
       <Nav.Link as={Link} to="/">Home</Nav.Link>
-     
-
+      {user ? <Link to="/store">Store</Link> : null}
       <div>
         {user ? (
+          <>
+          <Link to="/cart">Cart</Link>
           <Button variant="success" onClick={handleLogoutClick}>Logout</Button>
+          </>
         ) : (
           <>
-            <ul className="nav justify-content-end">
-  
+  <ul className="nav justify-content-end">
   <li className="nav-item">
   <Nav.Link className="nav-link" as={Link} to="/signup">Signup</Nav.Link>
   </li>
