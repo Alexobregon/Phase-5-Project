@@ -7,6 +7,8 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import { Navbar } from "react-bootstrap";
 import "./App.css";
+import Store from "./Store";
+import Cart from "./Cart";
 
 
 function App() {
@@ -27,8 +29,14 @@ function App() {
       <main>
         {user ? (
           <Switch>
+            <Route path="/store">
+              <Store user={user} />
+            </Route>
+            <Route path="/cart">
+              <Cart user={user} />
+            </Route>
             <Route path="/">
-              <Home  user={user}/>
+              <Home user={user} />
             </Route>
           </Switch>
         ) : (
