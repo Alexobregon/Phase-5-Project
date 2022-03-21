@@ -25,7 +25,7 @@ console.log(currentCart)
       <div>
         {user ? (
           <>
-          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart.cart_count}<Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart <Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
           <div  className="btn2">
                
           
