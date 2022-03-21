@@ -4,7 +4,7 @@ import { Button, Nav, Navbar, Container } from 'react-bootstrap';
 
 
 
-function NavBar({ user, setUser }) {
+function NavBar({ user, setUser, currentCart }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -12,30 +12,33 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-
+console.log(currentCart)
   return (
     
     <div className="App">
       <Navbar bg="dark" variant="dark">
-      <Container>
+      <Container className="con1">
       <Nav className="nav justify-content-center" activeKey="/home">
-    <header>
-      <Nav.Link as={Link} to="/">Home</Nav.Link>
-      {user ? <Nav.Link as={Link} to="/store">Store</Nav.Link> : null}
+    
+      <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
+      {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}
       <div>
         {user ? (
           <>
-          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-          <Button variant="success" onClick={handleLogoutClick}>Logout</Button>
+          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart <Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+          <div  className="btn2">
+               
+          
+          </div>
           </>
         ) : (
           <>
   <ul className="nav justify-content-end">
   <li className="nav-item">
-  <Nav.Link className="nav-link" as={Link} to="/signup">Signup</Nav.Link>
+  <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/signup">Signup</Nav.Link>
   </li>
   <li className="nav-item">
-  <Nav.Link className="nav-link" as={Link} to="/login">Login</Nav.Link>
+  <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/login">Login</Nav.Link>
   </li>
  
 </ul>
@@ -44,7 +47,7 @@ function NavBar({ user, setUser }) {
           </>
         )}
       </div>
-    </header>
+    
     </Nav>
     </Container>
     </Navbar>
@@ -55,3 +58,4 @@ function NavBar({ user, setUser }) {
 
 export default NavBar;
 
+// style={{marginLeft: "100px", margintop: "300px"}} 

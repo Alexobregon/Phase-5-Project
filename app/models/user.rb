@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :products, through: :carts
 
     validates :username, presence: true, uniqueness: true
+    validates :password, presence: true
 
 
     def cart_sum
@@ -17,4 +18,13 @@ class User < ApplicationRecord
        def cart
         self.products
       end
+
+      def cart_count
+        if self.carts.length > 0
+          return self.carts.length
+        else return 0
+        end
+        
+         end
+
 end

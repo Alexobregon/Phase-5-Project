@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard"
 
-function Cart({ user }) {
-    const [currentCart, setCart] = useState(null);
+function Cart({ user, currentCart, setCart }) {
+    // const [currentCart, setCart] = useState(null);
 
 
     useEffect(() => {
@@ -24,7 +24,8 @@ function Cart({ user }) {
           {cards}
           <hr className="totalLine"></hr>
           <span>
-            <b className="cartTotal">Total:</b>
+          <b className="cartTotal">Items in Cart: {currentCart.cart_count}</b>
+            <b className="cartTotal" style={{ marginLeft: "12px" }}>Total:</b>
             <b className="cartTotal" style={{ marginLeft: "75%" }}>
             ${currentCart.cart_sum}.00
             </b>
