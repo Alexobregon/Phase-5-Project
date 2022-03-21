@@ -1,9 +1,26 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard"
 import { Button } from 'react-bootstrap'
+import StripeCheckout from 'react-stripe-checkout'
 
 function Cart({ user, currentCart, setCart }) {
     // const [currentCart, setCart] = useState(null);
+
+
+function handleToken(token, addresses) {
+console.log({token, addresses})
+return Cart.destroy_all
+
+
+
+}
+
+
+
+
+
+
+
 
 
     useEffect(() => {
@@ -15,7 +32,7 @@ function Cart({ user, currentCart, setCart }) {
       return <h2>Loading...</h2>;
     }
   
-  
+  // console.log(currentCart.carts.map((c) => { return c.product.name}))
     const cards = currentCart.carts.map((c) => {
         return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;
     })
@@ -29,7 +46,15 @@ function Cart({ user, currentCart, setCart }) {
             <b className="cartTotal" style={{ marginLeft: "12px" }}>Total:</b>
             <b className="cartTotal" style={{ marginLeft: "75%" }}>
             ${currentCart.cart_sum}.00
-            <Button>Checkout</Button>
+            
+            <StripeCheckout style={{ marginLeft: "12px" }}
+            stripeKey="pk_test_51Kftu6EMJuFFtZ9wHfaQkAbiO1ffCOVYN2Us633XKZFzBltBCPTbxM9YL84Q27aEld2eHOR0ScEgvC7xP2TREihc00JMlUTZib"
+            token={handleToken}
+            billingAddress
+            shippingAddress
+            amount={currentCart.cart_sum * 100}
+            name={currentCart.carts.map((c) => { return c.product.name})}
+            />
             </b>
           </span>
         </div>
