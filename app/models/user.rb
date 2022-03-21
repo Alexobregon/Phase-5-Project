@@ -17,4 +17,13 @@ class User < ApplicationRecord
        def cart
         self.products
       end
+
+      def cart_count
+        if self.carts.length > 0
+          return self.carts.length
+        else return 0
+        end
+        
+         end
+
 end

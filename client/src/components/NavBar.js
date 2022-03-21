@@ -4,7 +4,7 @@ import { Button, Nav, Navbar, Container } from 'react-bootstrap';
 
 
 
-function NavBar({ user, setUser }) {
+function NavBar({ user, setUser, currentCart }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -12,7 +12,7 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-
+console.log(currentCart)
   return (
     
     <div className="App">
@@ -25,7 +25,7 @@ function NavBar({ user, setUser }) {
       <div>
         {user ? (
           <>
-          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart <Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart.cart_count}<Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
           <div  className="btn2">
                
           

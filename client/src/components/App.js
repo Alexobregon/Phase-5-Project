@@ -11,8 +11,10 @@ import Store from "./Store";
 import Cart from "./Cart";
 
 
+
 function App() {
   const [user, setUser] = useState(null);
+  const [currentCart, setCart] = useState(null);
 
   useEffect(() => {
     // auto-login
@@ -23,17 +25,20 @@ function App() {
     });
   }, []);
 
+  
+console.log(currentCart)
+  
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} currentCart={currentCart} setCart={setCart}/>
       <main>
         {user ? (
           <Switch>
             <Route path="/store">
-              <Store user={user} />
+              <Store user={user} currentCart={currentCart} setCart={setCart}/>
             </Route>
             <Route path="/cart">
-              <Cart user={user} />
+              <Cart user={user} currentCart={currentCart} setCart={setCart} />
             </Route>
             <Route path="/">
               <Home user={user} />
