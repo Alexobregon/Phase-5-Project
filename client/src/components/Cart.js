@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard"
+import { Button } from 'react-bootstrap'
 
 function Cart({ user, currentCart, setCart }) {
     // const [currentCart, setCart] = useState(null);
@@ -28,6 +29,7 @@ function Cart({ user, currentCart, setCart }) {
             <b className="cartTotal" style={{ marginLeft: "12px" }}>Total:</b>
             <b className="cartTotal" style={{ marginLeft: "75%" }}>
             ${currentCart.cart_sum}.00
+            <Button>Checkout</Button>
             </b>
           </span>
         </div>
