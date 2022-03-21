@@ -6,6 +6,7 @@ function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -21,11 +22,17 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser(user))
+      } else {
+        r.json().then((errorData) => setErrors(errorData.errors));
       }
+    
+      
+    
     });
-  }
 
+  }
+console.log(errors)
   return (
     <div class="container">
     <div class="row">
@@ -72,6 +79,13 @@ function SignUp({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
+        {errors.length > 0 && (
+        <ul style={{ color: "red" }}>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      )}
 
             </div>
             <div class="text-center"><Button type="submit" class="btn btn-color px-5 mb-5 w-100">Sign up</Button></div>
