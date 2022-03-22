@@ -9,18 +9,32 @@ function Cart({ user, currentCart, setCart }) {
 
 function handleToken(token, addresses) {
 console.log({token, addresses})
-return Cart.destroy_all
+
+if (token != null) {
+
+currentCart.carts.map((c) => { 
+
+fetch(`/carts/${c.id}`, {
+  method: "DELETE",
+}).then((res) => {
+  if (res.ok) {
+    getUpdatedCart();
+  } else {
+    res.json().then(console.log);
+  }
+});
+
+})}
 
 
 
 }
 
-
-
-
-
-
-
+function getUpdatedCart() {
+  fetch(`/users/${user.id}`)
+    .then((resp) => resp.json())
+    .then((receivedItems) => setCart(receivedItems))
+}
 
 
     useEffect(() => {
