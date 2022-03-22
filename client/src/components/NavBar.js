@@ -12,24 +12,29 @@ function NavBar({ user, setUser, currentCart }) {
       }
     });
   }
-console.log(currentCart)
+  console.log(user)
+  
   return (
-    
+   
+
     <div className="App">
       <Navbar bg="dark" variant="dark">
       <Container className="con1">
+      {user ? <b className="tests">Welcome {user.username}</b> : null}
+      {/* {currentCart ? <b className="tests">Welcome {currentCart.cart_count}</b> : null} */}
       <Nav className="nav justify-content-center" activeKey="/home">
-    
+      
       <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
       {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}
+    
       <div>
         {user ? (
           <>
+           
           <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart <Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
-          <div  className="btn2">
-               
+        
           
-          </div>
+          
           </>
         ) : (
           <>
@@ -40,7 +45,8 @@ console.log(currentCart)
   <li className="nav-item">
   <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/login">Login</Nav.Link>
   </li>
- 
+  
+    
 </ul>
 
 

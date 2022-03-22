@@ -27,7 +27,7 @@ function App() {
 
   
 
-  
+  console.log(user)
   return (
     <>
       <NavBar user={user} setUser={setUser} currentCart={currentCart} setCart={setCart}/>

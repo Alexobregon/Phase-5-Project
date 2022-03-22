@@ -14,6 +14,7 @@ class CartsController < ApplicationController
         cart.destroy
         head :no_content
     end
+    
 
     private
 

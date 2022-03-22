@@ -1,4 +1,7 @@
 function Home({ user }) {
+
+console.log() 
+
     if (user) {
       return <h1>Welcome, {user.username}! You are logged in! </h1>;
     } else {
@@ -6,4 +9,5 @@ function Home({ user }) {
     }
   }
 
+  
   export default Home;
