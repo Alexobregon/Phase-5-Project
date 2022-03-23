@@ -30,12 +30,12 @@ function CartCard({ item, cart_id, setCart, user_id }) {
             <div class="card-stacked">
               <div class="card-content">
                 <span class="card-title">
-                    <b>{item.name}</b>
-                    <b style={{marginLeft: "20px", marginRight: "20px"}}>${item.price}.00</b>
+                    <b style={{ color: 'white'}} >{item.name}</b>
+                    <b style={{marginLeft: "20px", marginRight: "20px", color: 'white'}}>${item.price}.00</b>
                     <Button style={{ backgroundColor: '#76b900'}} variant="success" id="delete-btn" className="btn" onClick={handleDeleteClick}>Delete</Button>
                 </span>
     
-                <p>{item.description}</p>
+                <p style={{ color: 'white'}} >{item.description}</p>
               </div>
             </div>
           </div>

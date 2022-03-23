@@ -5,12 +5,18 @@ import StripeCheckout from 'react-stripe-checkout'
 
 function Cart({ user, currentCart, setCart }) {
     // const [currentCart, setCart] = useState(null);
-
-
+    const [thankYou, setThankYou] = useState(false)
+   
 function handleToken(token, addresses) {
 console.log({token, addresses})
 
+
+
 if (token != null) {
+ 
+
+
+  thankyou()
 
 currentCart.carts.map((c) => { 
 
@@ -28,6 +34,11 @@ fetch(`/carts/${c.id}`, {
 
 
 
+}
+
+
+function thankyou() {
+  setThankYou(true)
 }
 
 function getUpdatedCart() {
@@ -75,6 +86,7 @@ function getUpdatedCart() {
           {cards}
           <hr className="totalLine"></hr>
           <span>
+            {thankYou ? <> <h1 id="thankyou" style={{ color: 'white'}} >Thank you for your purchess!</h1> </>: null}
           <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
             <b className="cartTotal" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
             <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
