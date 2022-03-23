@@ -13,13 +13,20 @@
   text-align: center;
   padding-top:10px;
   padding-bottom:10px;
+  background-color: black
 }
 
 .Search-input {
 width: 30%;
 height: 60px;
 border-color: green;
-border-radius: 7px;
+border-radius: 77px;
+
+}
+
+.Search-input::placeholder {
+  color: black;
+  opacity: 3;
 }
 
 #add-to-cart {

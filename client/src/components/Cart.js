@@ -45,6 +45,24 @@ function getUpdatedCart() {
     if (currentCart === null) {
       return <h2>Loading...</h2>;
     }
+
+    function handleCartDelete() {
+      currentCart.carts.map((c) => { 
+      fetch(`/carts/${c.id}`, {
+        method: "DELETE",
+      }).then((res) => {
+        if (res.ok) {
+          getUpdatedCart();
+        } else {
+          res.json().then(console.log);
+        }
+      })
+      });
+    }
+
+
+
+
   
   // console.log(currentCart.carts.map((c) => { return c.product.name}))
     const cards = currentCart.carts.map((c) => {
@@ -52,13 +70,14 @@ function getUpdatedCart() {
     })
     return (
         <div className="cart">
-          <h1 className="cartTitle">CART</h1>
+          <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
+          <Button variant="success" onClick={handleCartDelete}>Delete all cart</Button>
           {cards}
           <hr className="totalLine"></hr>
           <span>
-          <b className="cartTotal">Items in Cart: {currentCart.cart_count}</b>
-            <b className="cartTotal" style={{ marginLeft: "12px" }}>Total:</b>
-            <b className="cartTotal" style={{ marginLeft: "75%" }}>
+          <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
+            <b className="cartTotal" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
+            <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
             ${currentCart.cart_sum}.00
             
             <StripeCheckout style={{ marginLeft: "12px" }}

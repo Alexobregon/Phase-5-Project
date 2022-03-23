@@ -3,9 +3,9 @@ function Home({ user }) {
 console.log() 
 
     if (user) {
-      return <h1>Welcome, {user.username}! You are logged in! </h1>;
+      return <h1 style={{ color: 'white'}} >Welcome, {user.username}! You are logged in! </h1>;
     } else {
-      return <h1>Not logged in</h1>;
+      return <h1 style={{ color: 'white'}} >Not logged in</h1>;
     }
   }
 

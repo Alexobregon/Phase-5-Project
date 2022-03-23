@@ -23,7 +23,7 @@ function CartCard({ item, cart_id, setCart, user_id }) {
     return ( <> 
         <div class="col s12 m7">
     
-          <div class="card horizontal">
+          <div class="card horizontal" style={{ backgroundColor: 'grey'}}>
             <div class="card-image">
               <img src={item.image_url} class="fadeIn cardImage"></img>
             </div>
