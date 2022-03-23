@@ -12,16 +12,19 @@ function NavBar({ user, setUser, currentCart }) {
       }
     });
   }
-  console.log(user)
+ 
   
+  // const image = <img className="avatarPic" src={user.avatar_url}></img>
+
   return (
    
 
     <div className="App">
       <Navbar bg="dark" variant="dark">
-      <Container className="con1">
-      {user ? <b className="tests">Welcome, {user.username}</b> : null}
-      <Nav className="nav justify-content-center" activeKey="/home">
+      <Container  className="con1">
+      {user ? <b className="tests">Welcome, {user.username}  </b>  : null}
+      
+      <Nav  className="nav justify-content-center" activeKey="/home">
       
       <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
       {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}

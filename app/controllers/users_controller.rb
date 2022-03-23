@@ -13,6 +13,13 @@ class UsersController < ApplicationController
       render json: user, status: :created
     end
 
+    def update
+      user = User.find(params[:id])
+      user.update!(user_params)
+      render json: user
+    
+    end
+
     def show
         user = User.find_by(id: session[:user_id])
         render json: user
@@ -23,7 +30,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-      params.permit(:username, :password, :password_confirmation)
+      params.permit(:username, :password, :password_confirmation, :avatar_url)
     end
 
     def render_not_found_response

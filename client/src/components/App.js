@@ -27,7 +27,7 @@ function App() {
 
   // style={{ backgroundColor: 'black', height: '975px'}}
 
-  console.log(user)
+  
   return (
     <div>
       <NavBar user={user} setUser={setUser} currentCart={currentCart} setCart={setCart}/>

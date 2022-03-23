@@ -6,6 +6,7 @@ function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [avatar_url, setAvatar_url] = useState("");
   const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
@@ -19,6 +20,7 @@ function SignUp({ setUser }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        avatar_url
       }),
     }).then((r) => {
       if (r.ok) {
@@ -78,6 +80,15 @@ console.log(errors)
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
+        />
+         <label htmlFor="avatar">Custom avatar</label>
+        <input
+        class="form-control"
+          type="text"
+          id="username"
+          autoComplete="off"
+          value={avatar_url}
+          onChange={(e) => setAvatar_url(e.target.value)}
         />
         {errors.length > 0 && (
         <ul style={{ color: "red" }}>

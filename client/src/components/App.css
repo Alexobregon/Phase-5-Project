@@ -43,4 +43,19 @@ margin-bottom: 10px;
 }
 .tests {
   color: white;
+
+}
+#thankyou {
+  text-align: center;
+}
+.avatarPic {
+  max-width: 30%;
+  max-height: 30%;
+
+}
+#avatarDiv {
+  text-align: center;
+}
+#homeContainer {
+  text-align: center;
 }
