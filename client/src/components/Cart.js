@@ -71,7 +71,7 @@ function getUpdatedCart() {
     return (
         <div className="cart">
           <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
-          <Button variant="success" onClick={handleCartDelete}>Delete all cart</Button>
+          <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete}>Delete all cart</Button>
           {cards}
           <hr className="totalLine"></hr>
           <span>

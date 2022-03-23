@@ -20,7 +20,7 @@ function NavBar({ user, setUser, currentCart }) {
     <div className="App">
       <Navbar bg="dark" variant="dark">
       <Container className="con1">
-      {user ? <b className="tests">Welcome {user.username}</b> : null}
+      {user ? <b className="tests">Welcome, {user.username}</b> : null}
       <Nav className="nav justify-content-center" activeKey="/home">
       
       <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
@@ -30,7 +30,7 @@ function NavBar({ user, setUser, currentCart }) {
         {user ? (
           <>
            
-          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> : null}<Button variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> : null}<Button style={{ backgroundColor: '#76b900'}} variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
         
           
           

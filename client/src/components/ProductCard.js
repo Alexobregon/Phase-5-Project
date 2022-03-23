@@ -46,7 +46,7 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
-    <div className="card mb-3" style={{width: "600px", height: "170px", backgroundColor: 'grey' }} >
+    <div className="card mb-3" style={{width: "600px", height: "170px", backgroundColor: '#666' }} >
   <div className="row no-gutters">
     <div className="col-md-4">
     <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
@@ -56,7 +56,7 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
       <b>{name}</b>
       <p>{description}</p>
         <b>${price}.00</b>
-         <Button variant="success" style={{marginLeft: "20px"}} onClick={handleclick}>Add to cart</Button>
+         <Button  variant="success" style={{marginLeft: "20px", backgroundColor: '#76b900'}} onClick={handleclick}>Add to cart</Button>
         
 
          { visible ? (

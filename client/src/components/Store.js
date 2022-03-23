@@ -38,7 +38,7 @@ function Store({ user, setCart }) {
   
     return <>
     <div className="Search-div">
-            <input style={{ backgroundColor: 'grey', color: 'black'}}
+            <input style={{ backgroundColor: '#666', color: 'black'}}
             className="Search-input"
             type="text"
             id="search"
