@@ -12,7 +12,7 @@ function NavBar({ user, setUser, currentCart }) {
       }
     });
   }
-  console.log(user)
+ 
   
   // const image = <img className="avatarPic" src={user.avatar_url}></img>
 
