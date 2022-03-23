@@ -23,7 +23,7 @@ function CartCard({ item, cart_id, setCart, user_id }) {
     return ( <> 
         <div class="col s12 m7">
     
-          <div class="card horizontal">
+          <div class="card horizontal" style={{ backgroundColor: '#666'}}>
             <div class="card-image">
               <img src={item.image_url} class="fadeIn cardImage"></img>
             </div>
@@ -32,7 +32,7 @@ function CartCard({ item, cart_id, setCart, user_id }) {
                 <span class="card-title">
                     <b>{item.name}</b>
                     <b style={{marginLeft: "20px", marginRight: "20px"}}>${item.price}.00</b>
-                    <Button variant="success" id="delete-btn" className="btn" onClick={handleDeleteClick}>Delete</Button>
+                    <Button style={{ backgroundColor: '#76b900'}} variant="success" id="delete-btn" className="btn" onClick={handleDeleteClick}>Delete</Button>
                 </span>
     
                 <p>{item.description}</p>

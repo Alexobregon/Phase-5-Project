@@ -40,7 +40,7 @@ console.log(errors)
       
         <div class="card my-5">
 
-          <form class="card-body cardbody-color p-lg-5" onSubmit={handleSubmit}>
+          <form  class="card-body cardbody-color p-lg-5" onSubmit={handleSubmit}>
 
             <div class="text-center">
               <img src="https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"

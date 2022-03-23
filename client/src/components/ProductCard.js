@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Alert } from 'react-bootstrap'
 
-function ProductCard({ item: { name, price, description, image_url, id }, user }) {
+function ProductCard({ item: { name, price, description, image_url, id }, user, setCart }) {
     const [visible, setvisible] = useState(true);
+    const [count, setCount] = useState(0);
 
     
 
@@ -18,21 +19,34 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
       })
     })
       .then((r) => r.json())
-      .then((data) => (setvisible(false)));
+      .then((data) => (setvisible(false), getUpdatedCart())
+     
+      )
 
-    
+  }
+
+
+  function getUpdatedCart() {
+    fetch(`/users/${user.id}`)
+      .then((resp) => resp.json())
+      .then((receivedItems) => setCart(receivedItems), counter())
+  }
+
+  function counter() {
+    setCount( count + 1)
   }
 
 
 
 
-  console.log(image_url);
+
+
   return (
 <>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
-    <div className="card mb-3" style={{width: "600px", height: "170px" }} >
+    <div className="card mb-3" style={{width: "600px", height: "170px", backgroundColor: '#666' }} >
   <div className="row no-gutters">
     <div className="col-md-4">
     <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
@@ -42,7 +56,7 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
       <b>{name}</b>
       <p>{description}</p>
         <b>${price}.00</b>
-         <Button variant="success" style={{marginLeft: "20px"}} onClick={handleclick}>Add to cart</Button>
+         <Button  variant="success" style={{marginLeft: "20px", backgroundColor: '#76b900'}} onClick={handleclick}>Add to cart</Button>
         
 
          { visible ? (
@@ -50,9 +64,9 @@ function ProductCard({ item: { name, price, description, image_url, id }, user }
         ) : (
           <>
   <b id="add-to-cart" >Added to Cart!</b>
-
           </>
         )}
+        { count > 1 ? ( <> ({count})  </>  ) : ( <></> )}
 
       </div>
     </div>
