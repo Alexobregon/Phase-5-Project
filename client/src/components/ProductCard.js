@@ -37,10 +37,6 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
   }
 
 
-
-
-
-
   return (
 <>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -57,8 +53,6 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
       <p>{description}</p>
         <b>${price}.00</b>
          <Button  variant="success" style={{marginLeft: "20px", backgroundColor: '#76b900'}} onClick={handleclick}>Add to cart</Button>
-        
-
          { visible ? (
          <></>
         ) : (
@@ -78,19 +72,3 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
 
 export default ProductCard;
 
-{/* <div className="card">
-      <img src={image_url} alt="Avatar" style={{ width: "20%" }}></img>
-      <div className="container">
-        <h4>
-          <span>
-            <b>{name}</b>
-            <br></br>
-            <b>${price}.00</b>
-            <button style={{marginLeft: "20px"}} onClick={handleclick}>Add to cart</button>
-          </span>
-        </h4>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-} */}

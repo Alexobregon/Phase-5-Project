@@ -61,24 +61,17 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
 
-          
         />
         
 
-            </div> 
-            <div class="text-center">
-
-            
+    </div> 
+    <div class="text-center">        
     <ul style={{ color: "red" }}>
     {errors}
-    </ul>
-  
-
-            
-            
-              <Button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</Button></div>
-            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> Don't have an Account?
-            <ul class="nav justify-content-center">
+    </ul> 
+    <Button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</Button></div>
+    <div id="emailHelp" class="form-text text-center mb-5 text-dark"> Don't have an Account?
+    <ul class="nav justify-content-center">
   
   <li class="nav-item">
   <Nav>
@@ -102,28 +95,3 @@ function Login({ setUser }) {
 export default Login;
 
 
-{/* <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button variant="success" type="submit">Login</Button>
-        
-      </form> */}
-
-      // <Nav>
-      //       <Nav.Link className="nav-link" as={Link} to="/signup">Signup</Nav.Link>
-      //       </Nav>
