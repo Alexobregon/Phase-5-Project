@@ -13,8 +13,6 @@ function NavBar({ user, setUser, currentCart }) {
     });
   }
  
-  
-  // const image = <img className="avatarPic" src={user.avatar_url}></img>
 
   return (
    
@@ -27,16 +25,11 @@ function NavBar({ user, setUser, currentCart }) {
       <Nav  className="nav justify-content-center" activeKey="/home">
       
       <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
-      {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}
-    
+      {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}  
       <div>
         {user ? (
           <>
-           
           <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> : null}<Button style={{ backgroundColor: '#76b900'}} variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
-        
-          
-          
           </>
         ) : (
           <>
@@ -46,21 +39,15 @@ function NavBar({ user, setUser, currentCart }) {
   </li>
   <li className="nav-item">
   <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/login">Login</Nav.Link>
-  </li>
-  
-    
-</ul>
-
-
-          </>
-        )}
-      </div>
-    
-    </Nav>
-    </Container>
-    </Navbar>
-    </div>
-    
+  </li> 
+  </ul>      
+  </>
+   )}
+  </div>
+  </Nav>
+  </Container>
+  </Navbar>
+  </div> 
   );
 }
 

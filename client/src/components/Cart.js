@@ -13,9 +13,6 @@ console.log({token, addresses})
 
 
 if (token != null) {
- 
-
-
   thankyou()
 
 currentCart.carts.map((c) => { 
@@ -31,8 +28,6 @@ fetch(`/carts/${c.id}`, {
 });
 
 })}
-
-
 
 }
 
@@ -71,11 +66,6 @@ function getUpdatedCart() {
       });
     }
 
-
-
-
-  
-  // console.log(currentCart.carts.map((c) => { return c.product.name}))
     const cards = currentCart.carts.map((c) => {
         return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;
     })
