@@ -6,6 +6,8 @@ import StripeCheckout from 'react-stripe-checkout'
 function Cart({ user, currentCart, setCart }) {
     // const [currentCart, setCart] = useState(null);
     const [thankYou, setThankYou] = useState(false)
+    const [order, setOrder] = useState([])
+    const [orderPrice, setOrderPrice] = useState([])
    
 function handleToken(token, addresses) {
 console.log({token, addresses})
@@ -14,6 +16,11 @@ console.log({token, addresses})
 
 if (token != null) {
   thankyou()
+  handleOrderName()
+  handleOrderPrice()
+
+
+
 
 currentCart.carts.map((c) => { 
 
@@ -36,13 +43,22 @@ function thankyou() {
   setThankYou(true)
 }
 
+function handleOrderName() {
+ setOrder( currentCart.carts.map((c) => {return c.product.name} ))
+}
+
+
+function handleOrderPrice() {
+  setOrderPrice(currentCart.cart_sum)
+}
+
 function getUpdatedCart() {
   fetch(`/users/${user.id}`)
     .then((resp) => resp.json())
     .then((receivedItems) => setCart(receivedItems))
 }
 
-
+console.log(order, orderPrice)
     useEffect(() => {
       fetch(`/users/${user.id}`)
         .then((resp) => resp.json())
@@ -65,6 +81,7 @@ function getUpdatedCart() {
       })
       });
     }
+
 
     const cards = currentCart.carts.map((c) => {
         return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;

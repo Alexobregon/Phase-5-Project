@@ -18,9 +18,9 @@
 
 .Search-input {
 width: 30%;
-height: 60px;
+height: 55px;
 border-color: #76b900;
-border-radius: 77px;
+border-radius: 5px;
 
 }
 
@@ -58,4 +58,9 @@ margin-bottom: 10px;
 }
 #homeContainer {
   text-align: center;
+}
+.store-center {
+text-align: center;
+color: #fff;
+font-family: GeForce,Helvetica,Arial,Sans-Serif;
 }
