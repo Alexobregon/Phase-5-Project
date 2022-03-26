@@ -24,7 +24,7 @@ function Store({ user, setCart }) {
           return items;
         }
       };
-      console.log(items)
+      
   
     if (items === null) {
       return <h2 style={{ color: 'white'}} >Loading...</h2>;
@@ -34,7 +34,7 @@ function Store({ user, setCart }) {
       return <ProductCard key={i.id} item={i} user={user} setCart={setCart}/>;
     });
   
-    console.log(items);
+   
   
     return <>
   <h1 className="store-center">Welcome to GP-You!</h1>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :histories, only: [:index, :create]
   resources :carts, only: [:index, :update, :destroy, :create]
   resources :products
   resources :users, only: [:show, :create, :index, :update]

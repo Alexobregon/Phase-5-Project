@@ -6,22 +6,101 @@ import StripeCheckout from 'react-stripe-checkout'
 function Cart({ user, currentCart, setCart }) {
     // const [currentCart, setCart] = useState(null);
     const [thankYou, setThankYou] = useState(false)
-    const [order, setOrder] = useState([])
-    const [orderPrice, setOrderPrice] = useState([])
-   
+    const [order, setOrder] = useState("")
+    const [price, setPrice] = useState("")
+
+    useEffect(() => {
+      fetch(`/users/${user.id}`)
+        .then((resp) => resp.json())
+        .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
+    }, []);
+     
+    useEffect(() => { 
+    fetch(`/users/${user.id}`)
+        .then((resp) => resp.json())
+        .then((receivedItems) => setPrice(receivedItems.cart_sum));
+    }, []);
+      
+        // useEffect(() => {
+        //   fetch("/products")
+        //     .then((resp) => resp.json())
+        //     .then((receivedItems) => setItems(receivedItems));
+        // }, []);
+    
+    // console.log(order, price)
+  
+    // function test() {
+    //   fetch(`/carts`)
+    //     .then((resp) => resp.json())
+    //     .then((receivedItems) => setOrder(currentCart.carts.map((c) => { return c.product.name} )));
+    //   fetch(`/carts`)
+    //     .then((resp) => resp.json())
+    //     .then((receivedItems) => setPrice(currentCart.cart_sum));
+    // }
+    
+  
+    
+    
+
 function handleToken(token, addresses) {
 console.log({token, addresses})
 
 
+// function test() {
+  
+//   if (currentCart.cart_count > 0) {
+//   fetch("/carts")
+//     .then((resp) => resp.json())
+//     .then((receivedItems) => setOrder(currentCart.carts.map((c) => { return c.product.name}, setPrice(currentCart.cart_sum))))
+//   } else {
+//     fetch("/carts")
+//     .then((resp) => resp.json())
+//     .then((receivedItems) => console.log())
+//   }
+
+// }
+// test()
+
+
+
+
 
 if (token != null) {
+
+  
+  
+
+  
+  
+
+  
+
+
+ 
   thankyou()
-  handleOrderName()
-  handleOrderPrice()
+  CreateHistory()
+ function CreateHistory() {
 
 
+    fetch("/histories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order: `${order}`,
+        price: `${price}`,
+        user_id: user.id
+      })
+    })
+      .then((r) => r.json())
+      .then((data) => (console.log(order, price), DeleteAll())
+     
+      )
 
+ }
 
+function DeleteAll() {
 currentCart.carts.map((c) => { 
 
 fetch(`/carts/${c.id}`, {
@@ -37,20 +116,21 @@ fetch(`/carts/${c.id}`, {
 })}
 
 }
-
-
+}
 function thankyou() {
   setThankYou(true)
 }
 
-function handleOrderName() {
- setOrder( currentCart.carts.map((c) => {return c.product.name} ))
+function handleOrder() {
+  setOrder(currentCart.carts.map((c) => { return c.product.name}))
+  console.log(order)
+}
+
+function handlePrice() {
+  setPrice(currentCart.cart_sum)
 }
 
 
-function handleOrderPrice() {
-  setOrderPrice(currentCart.cart_sum)
-}
 
 function getUpdatedCart() {
   fetch(`/users/${user.id}`)
@@ -58,7 +138,7 @@ function getUpdatedCart() {
     .then((receivedItems) => setCart(receivedItems))
 }
 
-console.log(order, orderPrice)
+
     useEffect(() => {
       fetch(`/users/${user.id}`)
         .then((resp) => resp.json())
@@ -80,8 +160,9 @@ console.log(order, orderPrice)
         }
       })
       });
-    }
+    
 
+    }
 
     const cards = currentCart.carts.map((c) => {
         return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;
@@ -89,7 +170,7 @@ console.log(order, orderPrice)
     return (
         <div className="cart">
           <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
-          <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete}>Delete all cart</Button>
+          <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete} >Delete all cart</Button>
           {cards}
           <hr className="totalLine"></hr>
           <span>
@@ -105,7 +186,7 @@ console.log(order, orderPrice)
             billingAddress
             shippingAddress
             amount={currentCart.cart_sum * 100}
-            name={currentCart.carts.map((c) => { return c.product.name})}
+            name={"cart"}
             />
             </b>
           </span>
