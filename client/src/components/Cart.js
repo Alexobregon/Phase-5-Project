@@ -101,17 +101,29 @@ if (token != null) {
 
  }
 
+
+
+
+
 function DeleteAll() {
 currentCart.carts.map((c) => { 
+
+
+
+
+
+
 
 fetch(`/carts/${c.id}`, {
   method: "DELETE",
 }).then((res) => {
   if (res.ok) {
-    getUpdatedCart();
+    getUpdatedCart()
   } else {
     res.json().then(console.log);
   }
+
+  
 });
 
 })}
@@ -137,20 +149,6 @@ function getUpdatedCart() {
   fetch(`/users/${user.id}`)
     .then((resp) => resp.json())
     .then((receivedItems) => setCart(receivedItems))
-
-    
-      fetch(`/users/${user.id}`)
-        .then((resp) => resp.json())
-        .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
-    
-     
-     
-    fetch(`/users/${user.id}`)
-        .then((resp) => resp.json())
-        .then((receivedItems) => setPrice(receivedItems.cart_sum));
-  
-
-
 
 }
 
@@ -185,7 +183,7 @@ function getUpdatedCart() {
   })
 
     const cards = currentCart.carts.map((c) => {
-        return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;
+        return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} setOrder={setOrder} setPrice={setPrice} order={order} price={price} user={user}/>;
     })
     return ( <>
 

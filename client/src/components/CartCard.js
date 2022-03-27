@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap'
 
 
-function CartCard({ item, cart_id, setCart, user_id }) {
+function CartCard({ item, cart_id, setCart, user_id, setOrder, order, setPrice, price, user }) {
     function handleDeleteClick() {
   
       fetch(`/carts/${cart_id}`, {
@@ -19,6 +19,22 @@ function CartCard({ item, cart_id, setCart, user_id }) {
       fetch(`/users/${user_id}`)
         .then((resp) => resp.json())
         .then((receivedItems) => setCart(receivedItems))
+
+      
+          fetch(`/users/${user.id}`)
+            .then((resp) => resp.json())
+            .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
+        
+         
+        
+        fetch(`/users/${user.id}`)
+            .then((resp) => resp.json())
+            .then((receivedItems) => setPrice(receivedItems.cart_sum));
+        
+      
+      console.log(order, price)
+
+
     }
     return ( <> 
         <div class="col s12 m7">
