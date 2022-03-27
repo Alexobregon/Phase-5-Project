@@ -29,8 +29,8 @@ class User < ApplicationRecord
       end
 
       def lastfive
-        self.histories.last(5).reverse
-    
+       h = self.histories.last(5).reverse
+      h
       end
 
       

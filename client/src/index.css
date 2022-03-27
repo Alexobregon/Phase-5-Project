@@ -39,6 +39,7 @@
       "."
       ".";
     grid-area: 1 / 3 / 4 / 4;
+    padding-right: 5px;
   }
   
   .buy { grid-area: 4 / 1 / 5 / 4; }

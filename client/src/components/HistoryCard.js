@@ -6,7 +6,7 @@ function HistoryCard({ key, order, price, card_id, user_id  }) {
 
 
 
-
+  
 
 
 
