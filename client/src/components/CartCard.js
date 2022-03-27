@@ -23,8 +23,8 @@ function CartCard({ item, cart_id, setCart, user_id }) {
     return ( <> 
         <div class="col s12 m7">
     
-          <div class="card horizontal" style={{ backgroundColor: '#666'}}>
-            <div class="card-image">
+          <div class="card horizontal" style={{ backgroundColor: '#666', height: '100%'}}>
+            <div class="card-image" style={{ height: '100%' }}>
               <img src={item.image_url} class="fadeIn cardImage"></img>
             </div>
             <div class="card-stacked">

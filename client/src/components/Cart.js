@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard"
+import HistoryCard from "./HistoryCard"
 import { Button } from 'react-bootstrap'
 import StripeCheckout from 'react-stripe-checkout'
 
@@ -121,14 +122,14 @@ function thankyou() {
   setThankYou(true)
 }
 
-function handleOrder() {
-  setOrder(currentCart.carts.map((c) => { return c.product.name}))
-  console.log(order)
-}
+// function handleOrder() {
+//   setOrder(currentCart.carts.map((c) => { return c.product.name}))
+//   console.log(order)
+// }
 
-function handlePrice() {
-  setPrice(currentCart.cart_sum)
-}
+// function handlePrice() {
+//   setPrice(currentCart.cart_sum)
+// }
 
 
 
@@ -136,6 +137,21 @@ function getUpdatedCart() {
   fetch(`/users/${user.id}`)
     .then((resp) => resp.json())
     .then((receivedItems) => setCart(receivedItems))
+
+    
+      fetch(`/users/${user.id}`)
+        .then((resp) => resp.json())
+        .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
+    
+     
+     
+    fetch(`/users/${user.id}`)
+        .then((resp) => resp.json())
+        .then((receivedItems) => setPrice(receivedItems.cart_sum));
+  
+
+
+
 }
 
 
@@ -164,18 +180,21 @@ function getUpdatedCart() {
 
     }
 
+    const hCards = currentCart.lastfive.map((c) => {
+      return <HistoryCard key={c.id} order={c.order} price={c.price} card_id={c.id} user_id={user.id} />;
+  })
+
     const cards = currentCart.carts.map((c) => {
         return <CartCard key={c.id} item={c.product} cart_id={c.id} setCart={setCart} user_id={user.id} />;
     })
-    return (
-        <div className="cart">
-          <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
-          <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete} >Delete all cart</Button>
-          {cards}
-          <hr className="totalLine"></hr>
-          <span>
-            {thankYou ? <> <h1 id="thankyou" style={{ color: 'white'}} >Thank you for your purchess!</h1> </>: null}
-          <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
+    return ( <>
+
+      <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete} >Delete all cart</Button>
+      
+      <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
+
+
+      {/* <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
             <b className="cartTotal" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
             <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
             ${currentCart.cart_sum}.00
@@ -188,9 +207,61 @@ function getUpdatedCart() {
             amount={currentCart.cart_sum * 100}
             name={"cart"}
             />
-            </b>
+            </b> */}
+      
+        <div className="Cart">
+          
+          <div className="Cart-container">
+          
+         
+          
+        
+        
+          
+        
+          
+          {cards}
+          <hr className="totalLine"></hr>
+          <span>
+            {thankYou ? <> <h1 id="thankyou" style={{ color: 'white'}} >Thank you for your purchess!</h1> </>: null}
+          {/* <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
+            <b className="cartTotal" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
+            <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
+            ${currentCart.cart_sum}.00
+            
+            <StripeCheckout style={{ marginLeft: "12px" }}
+            stripeKey="pk_test_51Kftu6EMJuFFtZ9wHfaQkAbiO1ffCOVYN2Us633XKZFzBltBCPTbxM9YL84Q27aEld2eHOR0ScEgvC7xP2TREihc00JMlUTZib"
+            token={handleToken}
+            billingAddress
+            shippingAddress
+            amount={currentCart.cart_sum * 100}
+            name={"cart"}
+            />
+            </b> */}
           </span>
+          <div className="History">
+           <h1 className="pHistory">Purchase History</h1>
+          {hCards}</div>
+          </div>
+          <div className="buy">
+          <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
+            <b className="cartTotal" id="cartCards" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
+            <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
+            ${currentCart.cart_sum}.00
+            
+            <StripeCheckout style={{ marginLeft: "12px" }}
+            stripeKey="pk_test_51Kftu6EMJuFFtZ9wHfaQkAbiO1ffCOVYN2Us633XKZFzBltBCPTbxM9YL84Q27aEld2eHOR0ScEgvC7xP2TREihc00JMlUTZib"
+            token={handleToken}
+            billingAddress
+            shippingAddress
+            amount={currentCart.cart_sum * 100}
+            name={"cart"}
+            />
+            
+            </b>
+            </div>
         </div>
+        </>
       );
 }
 

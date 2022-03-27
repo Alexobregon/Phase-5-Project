@@ -64,3 +64,14 @@ text-align: center;
 color: #fff;
 font-family: GeForce,Helvetica,Arial,Sans-Serif;
 }
+#cartCards {
+  max-height: 100%;
+}
+.card-image {
+  max-width: 30px !important;
+}
+.pHistory {
+text-align: center;
+color: white;
+
+}
