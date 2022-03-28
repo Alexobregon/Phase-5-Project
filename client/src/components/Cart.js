@@ -9,22 +9,48 @@ function Cart({ user, currentCart, setCart }) {
     const [thankYou, setThankYou] = useState(false)
     const [order, setOrder] = useState("")
     const [price, setPrice] = useState("")
+    const [c1, setC1] = useState(0) 
+    const [c2, setC2] = useState(0) 
+
 console.log(user.id)
 console.log(currentCart)
-    useEffect(() => {
+
+
+    // useEffect(() => {
+    //   fetch(`/users/${user.id}`)
+    //     .then((resp) => resp.json())
+    //     .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
+    // }, []);
+     
+    // useEffect(() => { 
+    // fetch(`/users/${user.id}`)
+    //     .then((resp) => resp.json())
+    //     .then((receivedItems) => setPrice(receivedItems.cart_sum));
+    // }, []);
+
+    if (user && c1 < 2) { 
       fetch(`/users/${user.id}`)
         .then((resp) => resp.json())
-        .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
-    }, []);
+        .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name}, test())));
      
-    useEffect(() => { 
-    fetch(`/users/${user.id}`)
-        .then((resp) => resp.json())
-        .then((receivedItems) => setPrice(receivedItems.cart_sum));
-    }, []);
-
+    }
     
+    function test() {
+      setC1(c1 + 1)
       
+      }
+
+      if (user && c2 < 2) { 
+        fetch(`/users/${user.id}`)
+          .then((resp) => resp.json())
+          .then((receivedItems) => setPrice(receivedItems.cart_sum), test2());
+       
+      }
+
+
+      function test2() {
+        setC2(c2 + 1)
+      }
         // useEffect(() => {
         //   fetch("/products")
         //     .then((resp) => resp.json())
