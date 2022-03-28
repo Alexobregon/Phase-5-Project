@@ -49,7 +49,8 @@ console.log(currentCart)
     <div className="App">
       <Navbar bg="dark" variant="dark">
       <Container  className="con1">
-      {user ? <b className="tests">Welcome, {user.username}  </b>  : null}
+      
+      {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img> </>: null}
       
       <Nav  className="nav justify-content-center" activeKey="/home">
       
