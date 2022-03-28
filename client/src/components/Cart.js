@@ -9,7 +9,8 @@ function Cart({ user, currentCart, setCart }) {
     const [thankYou, setThankYou] = useState(false)
     const [order, setOrder] = useState("")
     const [price, setPrice] = useState("")
-
+console.log(user.id)
+console.log(currentCart)
     useEffect(() => {
       fetch(`/users/${user.id}`)
         .then((resp) => resp.json())
@@ -21,6 +22,8 @@ function Cart({ user, currentCart, setCart }) {
         .then((resp) => resp.json())
         .then((receivedItems) => setPrice(receivedItems.cart_sum));
     }, []);
+
+    
       
         // useEffect(() => {
         //   fetch("/products")

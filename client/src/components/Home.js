@@ -3,8 +3,51 @@ import { Button } from 'react-bootstrap';
 
 
 
-function Home({ user }) {
+function Home({ user, setCart, currentCart }) {
 const [avatar_url, setAvatar_url] = useState("")
+const [c, setC] = useState("") 
+const [c1, setC1] = useState(0) 
+
+const h = user
+console.log(currentCart)
+
+// / useEffect(() => {
+//   fetch(`/users/${user.id}`)
+//     .then((resp) => resp.json())
+//     .then((receivedItems) => setC1(receivedItems));
+// }, []);/
+
+
+if (user && c1 == 0) { 
+  fetch(`/users/${user.id}`)
+    .then((resp) => resp.json())
+    .then((receivedItems) => setCart(receivedItems), test());
+ 
+}
+
+function test() {
+setC1(c1 + 1)
+
+}
+
+// function test() {
+//   fetch(`/users/${user.id}`)
+//   .then((resp) => resp.json())
+//   .then((receivedItems) => setC(receivedItems));
+// }
+// test()
+
+// useEffect(() => {
+//   fetch(`/users/${user.id}`)
+//     .then((resp) => resp.json())
+//     .then((receivedItems) => setC(receivedItems));
+// }, []);
+// useEffect(() => {
+//   fetch(`/users/${user.id}`)
+//     .then((resp) => resp.json())
+//     .then((receivedItems) => setC1(receivedItems));
+// }, []);
+
 
 
 function handleSubmit() {

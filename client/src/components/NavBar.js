@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Button, Nav, Navbar, Container } from 'react-bootstrap';
 
 
 
-function NavBar({ user, setUser, currentCart }) {
+function NavBar({ user, setUser, currentCart, userid, setCart }) {
+ 
+
+console.log(currentCart)
+//   setTimeout(() => {
+
+// console.log(user.id)
+// }, 500);
+// const e = user.map((c) => { return c.carts })
+
+
+
+// function test() {
+//   fetch(`/users/${user.id}`)
+//   .then((resp) => resp.json())
+//   .then((receivedItems) => setC(receivedItems));
+// }
+// test()
+// function test() {
+ 
+//     fetch(`/users/${user.id}`)
+//       .then((resp) => resp.json())
+//       .then((receivedItems) => setC(receivedItems.cart_count), console.log(c));
+    
+  
+// }
+// test()
+
+
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -29,7 +58,7 @@ function NavBar({ user, setUser, currentCart }) {
       <div>
         {user ? (
           <>
-          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> : null}<Button style={{ backgroundColor: '#76b900'}} variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> :<b className="tests">{user.cart_count}</b> }<Button style={{ backgroundColor: '#76b900'}} variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
           </>
         ) : (
           <>

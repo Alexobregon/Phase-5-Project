@@ -41,7 +41,7 @@ function App() {
               <Cart user={user} currentCart={currentCart} setCart={setCart} />
             </Route>
             <Route path="/">
-              <Home user={user} />
+              <Home user={user} setCart={setCart} currentCart={currentCart}/>
             </Route>
           </Switch>
         ) : (
