@@ -52,7 +52,7 @@ console.log(currentCart)
       
       {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img> </>: null}
       
-      <Nav  className="nav justify-content-center" activeKey="/home">
+      <Nav  className="nav justify-content-center"  style={{ width: "500px"}} activeKey="/home">
       
       <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
       {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}  
