@@ -47,20 +47,27 @@ console.log(currentCart)
    
 
     <div className="App">
-      <Navbar bg="dark" variant="dark">
-      <Container  className="con1">
+      <Navbar bg="dark" variant="dark"  style={{ width: "100%", height: "70px"}} >
+      <Container  className="con1" style={{ width: "100%"}}>
       
-      {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img> </>: null}
+      {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img>  <Button  variant="success" type="button" className="test-botton" onClick={handleLogoutClick}>Logout</Button></>: null}
       
-      <Nav  className="nav justify-content-center"  style={{ width: "500px"}} activeKey="/home">
+      <Nav  className="nav-items"   style={{ marginLeft: "4px"}} activeKey="/home">
       
-      <Nav.Link class="nav-link" style={{ marginTop: "25px"}} as={Link} to="/">Home</Nav.Link>
-      {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}  
+      <Nav.Link class="nav-link"  as={Link} to="/">Home</Nav.Link>
+      {user ? <Nav.Link class="nav-link"   as={Link} to="/store">Store</Nav.Link> : null}  
       <div>
         {user ? (
           <>
-          <Nav.Link as={Link}  style={{ marginTop: "16px"}} to="/cart">Cart {currentCart ? <b className="tests">{currentCart.cart_count}</b> :<b className="tests">{user.cart_count}</b> }<Button style={{ backgroundColor: '#76b900'}} variant="success" type="button" className="btn2" onClick={handleLogoutClick}>Logout</Button></Nav.Link>
+    
+          <Nav.Link as={Link} class="nav-link" to="/cart">Cart {currentCart ? <b className="tests3">{currentCart.cart_count}</b> : <b className="tests3">{user.cart_count}</b> }</Nav.Link>
+          
+           
+         
+          
+        
           </>
+          
         ) : (
           <>
   <ul className="nav justify-content-end">
