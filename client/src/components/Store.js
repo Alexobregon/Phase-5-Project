@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-function Store({ user, setCart }) {
+function Store({ user, setCart, currentCart }) {
     const [items, setItems] = useState(null);
     const [search, setSearch] = useState("");
+    const [cartFull, setCartFull] = useState(0);
+
+
+
+    useEffect(() => {
+      fetch(`/users/${user.id}`)
+        .then((resp) => resp.json())
+        .then((receivedItems) => setCartFull(receivedItems.cart_count));
+    }, []);
+
+    console.log(cartFull)
   
     useEffect(() => {
       fetch("/products")
@@ -24,19 +35,21 @@ function Store({ user, setCart }) {
           return items;
         }
       };
-      console.log(items)
+      
   
     if (items === null) {
       return <h2 style={{ color: 'white'}} >Loading...</h2>;
     }
   
     const cards = filteredItem().map((i) => {
-      return <ProductCard key={i.id} item={i} user={user} setCart={setCart}/>;
+      return <ProductCard key={i.id} item={i} user={user} setCart={setCart} currentCart={currentCart} cartFull={cartFull} setCartFull={setCartFull}/>;
     });
   
-    console.log(items);
+   
   
     return <>
+  <h1 className="store-center">Welcome to GP-You!</h1>
+  <h3 className="store-center">Your one stop shop for the latest graphics cards</h3>
     <div className="Search-div">
             <input style={{ backgroundColor: '#666', color: 'black'}}
             className="Search-input"

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
+    after_initialize :set_defaults, unless: :persisted?
+    has_many :histories
     has_many :carts
     has_many :products, through: :carts
 
@@ -25,6 +27,15 @@ class User < ApplicationRecord
         else return 0
         end
         
+      end
+
+      def lastfive
+       h = self.histories.last(5).reverse
+      h
+      end
+
+      def set_defaults
+        self.avatar_url = 'https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923__340.png'
       end
       
 end

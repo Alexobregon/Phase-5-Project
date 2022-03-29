@@ -18,9 +18,9 @@
 
 .Search-input {
 width: 30%;
-height: 60px;
+height: 55px;
 border-color: #76b900;
-border-radius: 77px;
+border-radius: 5px;
 
 }
 
@@ -58,4 +58,35 @@ margin-bottom: 10px;
 }
 #homeContainer {
   text-align: center;
+}
+.store-center {
+text-align: center;
+color: #fff;
+font-family: GeForce,Helvetica,Arial,Sans-Serif;
+}
+#cartCards {
+  max-height: 100%;
+}
+.card-image {
+  max-width: 30px !important;
+}
+.pHistory {
+text-align: center;
+color: white;
+max-height: 0;
+background-color: #76b900;
+
+}
+.home-text {
+  text-align: center;
+}
+.profile-img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 800px;
+  border-radius: 100%;
+}
+.cartTitle {
+text-align: center;
+margin-right: 650px;
 }

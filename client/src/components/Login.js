@@ -24,7 +24,7 @@ function Login({ setUser }) {
       }
     })
   }   
-  console.log(errors)
+ 
 
   return (
     <div class="container">
