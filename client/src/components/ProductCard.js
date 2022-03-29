@@ -57,21 +57,21 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
   function counter() {
     setCount( count + 1)
   }
-
+  
   console.log(cartFull)
   return (
 <>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
-    <div className="card mb-3" style={{width: "600px", height: "170px", backgroundColor: '#666' }} >
-  <div className="row no-gutters">
+    <div className="card mb-3" style={{ height: "100%", backgroundColor: '#666' }} >
+  <div className="row no-gutters" style={{ marginTop: "20px"}}>
     <div className="col-md-4">
     <img src={image_url} alt="Avatar" style={{ width: "100%" }}></img>
     </div>
     <div className="col-md-8">
-      <div className="card-body">
-      <b>{name}</b>
+      <div className="card-body" style={{ width: "100%", height: "100%" }}>
+      <h5>{name}</h5>
       <p>{description}</p>
         <b>${price}.00</b>
         { cartFull > 3 ? ( 

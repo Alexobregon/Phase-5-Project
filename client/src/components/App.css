@@ -9,6 +9,10 @@
   }
 }
 
+@media all and (min-width: 480px) {
+.Store {
+padding: 0px
+}
 .Search-div {
   text-align: center;
   padding-top:10px;
@@ -41,6 +45,16 @@ margin-left: 10px;
 margin-bottom: 10px;
 
 }
+
+.store-center {
+  text-align: center;
+  color: #fff;
+  font-family: GeForce,Helvetica,Arial,Sans-Serif;
+  }
+}
+
+
+
 .tests {
   color: white;
 
@@ -59,11 +73,11 @@ margin-bottom: 10px;
 #homeContainer {
   text-align: center;
 }
-.store-center {
+/* .store-center {
 text-align: center;
 color: #fff;
 font-family: GeForce,Helvetica,Arial,Sans-Serif;
-}
+} */
 #cartCards {
   max-height: 100%;
 }
@@ -89,4 +103,8 @@ background-color: #76b900;
 .cartTitle {
 text-align: center;
 margin-right: 650px;
+}
+.not-log {
+  color: #fff;
+  text-align: center;
 }

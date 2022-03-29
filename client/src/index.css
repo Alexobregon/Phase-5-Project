@@ -1,3 +1,5 @@
+
+@media all and (min-width: 1000px) {
 .store {
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -5,7 +7,7 @@
     gap: 10px;
     background-color: black
   }
-  
+}
   html {background-color: black}
 
   .Cart {  display: grid;
