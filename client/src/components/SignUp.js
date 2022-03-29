@@ -20,7 +20,6 @@ function SignUp({ setUser }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
-        avatar_url
       }),
     }).then((r) => {
       if (r.ok) {
@@ -81,7 +80,7 @@ console.log(errors)
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-         <label htmlFor="avatar">Custom avatar</label>
+         {/* <label htmlFor="avatar">Custom avatar</label>
         <input
         class="form-control"
           type="text"
@@ -89,7 +88,7 @@ console.log(errors)
           autoComplete="off"
           value={avatar_url}
           onChange={(e) => setAvatar_url(e.target.value)}
-        />
+        /> */}
         {errors.length > 0 && (
         <ul style={{ color: "red" }}>
           {errors.map((error) => (

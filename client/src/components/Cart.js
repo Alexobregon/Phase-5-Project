@@ -216,7 +216,7 @@ function getUpdatedCart() {
     })
     return ( <>
 
-      <Button style={{ backgroundColor: '#76b900'}} variant="success" onClick={handleCartDelete} >Delete all cart</Button>
+      
       
       <h1 className="cartTitle" style={{ color: 'white'}} >CART</h1>
 
@@ -270,6 +270,7 @@ function getUpdatedCart() {
            <h1 className="pHistory">Purchase History</h1>
           {hCards}</div>
           </div>
+          
           <div className="buy">
           <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
             <b className="cartTotal" id="cartCards" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
@@ -284,6 +285,7 @@ function getUpdatedCart() {
             amount={currentCart.cart_sum * 100}
             name={"cart"}
             />
+            <Button style={{ backgroundColor: '#76b900', marginLeft: '50px'}} variant="success" onClick={handleCartDelete} >Delete all cart</Button>
             
             </b>
             </div>

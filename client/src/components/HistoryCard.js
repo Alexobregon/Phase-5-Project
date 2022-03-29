@@ -12,8 +12,9 @@ function HistoryCard({ key, order, price, card_id, user_id  }) {
 
 
     return ( <> 
-        <div className="pHistory">--------------------------------------------------------</div>
-       <div className="pHistory">Products: {order} Total: ${price}</div>
+        <div className="history-card">
+       <p  className="pHistory">Products: {order} Total: ${price}</p>
+       </div>
       </>
     )
 
