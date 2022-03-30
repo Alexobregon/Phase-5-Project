@@ -15,11 +15,22 @@ class UsersController < ApplicationController
     end
 
     def update
+      
       user = User.find(params[:id])
       user.update!(user_params)
-      render json: user
+      render json: user, status: :ok
     
     end
+
+  #   def create 
+  #     user = User.find_by(username: params[:username])
+  #     if user&.authenticate(params[:password])
+  #       session[:user_id] = user.id
+  #       render json: user
+  #     else
+  #       render json: { errors: "Username/Password combination not found" }, status: :not_found
+  #     end
+  # end
 
     def show
         user = User.find_by(id: session[:user_id])

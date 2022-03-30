@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 function Home({ user, setCart, currentCart, setUser }) {
 const [avatar_url, setAvatar_url] = useState("")
 const [c, setC] = useState("") 
-const [c1, setC1] = useState(0) 
+const [c1, setC1] = useState(0)
+const [errors, setErrors] = useState([]);
+
 
 const h = user
 console.log(currentCart)
@@ -51,17 +53,42 @@ setC1(c1 + 1)
 
 
 
-function handleSubmit() {
+function handleSubmit(e) {
+  e.preventDefault();
+  setAvatar_url("")
 console.log(avatar_url)
 
   fetch(`users/${user.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ avatar_url: `${avatar_url}` }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((errorData) => setErrors(errorData.errors));
+      }
+      console.log(errors)
+
     })
-      .then((res) => res.json())
-      .then((updatedItem) => console.log(updatedItem));
-  }
+    
+    
+  }   
+
+
+
+
+
+
+
+  //     .then((res) => res.json())
+  //     .then((updatedItem) => console.log(updatedItem));
+  // }
+
+
+
+
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -92,7 +119,7 @@ if (user) {
             <div class="mb-3">
             <h3 className="home-text"> username: {user.username} </h3>
             </div>
-            <p className="home-text">Paste image URl to change profile Picture</p>
+            <p className="home-text">Paste image URl to change Avatar Picture</p>
             <div class="mb-3">
             <input class="form-control"
             type="text"
@@ -101,6 +128,13 @@ if (user) {
             autoComplete="off"
             value={avatar_url}
             onChange={(e) => setAvatar_url(e.target.value)} /> 
+
+                  
+      <ul style={{ color: "red" }}>
+        
+      {errors}
+      </ul> 
+      
         
   
     </div> 
@@ -129,7 +163,9 @@ if (user) {
   )}
   
      else {
-      return <h1 className="not-log">Please log in</h1>;
+      return <>
+
+      </>
     }
 }
 

@@ -121,7 +121,7 @@ margin-right: 650px;
   text-align: center;
 }
 .test-botton {
-  background-color: green;
+  background-color: #76b900;
   float: right;
 
   
@@ -130,4 +130,13 @@ margin-right: 650px;
   /* position: sticky; */
   margin-left: 50px;
   margin-bottom: 1px
+}
+.nav-item1 {
+  position: sticky;
+  text-align: center;
+  color: #fff;
+ 
+  
+
+
 }

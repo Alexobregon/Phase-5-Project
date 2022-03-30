@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :products, through: :carts
 
     validates :username, presence: true, uniqueness: true
+    validates :avatar_url, format: URI::regexp(%w[http https])
   
 
 

@@ -49,10 +49,10 @@ function App() {
             <Route path="/signup">
               <SignUp setUser={setUser} />
             </Route>
-            <Route path="/login">
+            <Route path="/">
               <Login setUser={setUser} />
             </Route>
-            <Route path="/">
+            <Route path="/home">
               <Home />
             </Route>
           </Switch>

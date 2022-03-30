@@ -50,17 +50,18 @@ console.log(currentCart)
       <Navbar bg="dark" variant="dark"  style={{ width: "100%", height: "70px"}} >
       <Container  className="con1" style={{ width: "100%"}}>
       
-      {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img>  <Button  variant="success" type="button" className="test-botton" onClick={handleLogoutClick}>Logout</Button></>: null}
+      
+      {user ? <> <b className="tests">Welcome, {user.username} </b>  <img className="profile-img" src={user.avatar_url}></img>  <Button  variant="success" type="button"  style={{ marginTop: "25px"}} className="test-botton" onClick={handleLogoutClick}>Logout</Button></>: null}
       
       <Nav  className="nav-items"   style={{ marginLeft: "4px"}} activeKey="/home">
       
-      <Nav.Link class="nav-link"  as={Link} to="/">Home</Nav.Link>
-      {user ? <Nav.Link class="nav-link"   as={Link} to="/store">Store</Nav.Link> : null}  
+      { user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}}  as={Link} to="/">Profile</Nav.Link> : null} 
+      {user ? <Nav.Link class="nav-link"  style={{ marginTop: "25px"}} as={Link} to="/store">Store</Nav.Link> : null}  
       <div>
         {user ? (
           <>
     
-          <Nav.Link as={Link} class="nav-link" to="/cart">Cart {currentCart ? <b className="tests3">{currentCart.cart_count}</b> : <b className="tests3">{user.cart_count}</b> }</Nav.Link>
+          <Nav.Link as={Link} style={{ marginTop: "25px"}} class="nav-link" to="/cart">Cart {currentCart ? <b className="tests3">{currentCart.cart_count}</b> : <b className="tests3">{user.cart_count}</b> }</Nav.Link>
           
            
          
@@ -70,14 +71,18 @@ console.log(currentCart)
           
         ) : (
           <>
+          
   <ul className="nav justify-content-end">
+    
   <li className="nav-item">
   <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/signup">Signup</Nav.Link>
   </li>
   <li className="nav-item">
-  <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/login">Login</Nav.Link>
+  <Nav.Link className="nav-link" style={{ marginTop: "25px"}} as={Link} to="/login">Login</Nav.Link> 
   </li> 
+
   </ul>      
+  
   </>
    )}
   </div>
