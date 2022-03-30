@@ -6,7 +6,6 @@ function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [avatar_url, setAvatar_url] = useState("");
   const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
@@ -33,7 +32,7 @@ function SignUp({ setUser }) {
     });
 
   }
-console.log(errors)
+
   return (
     <div class="container">
     <div class="row">
@@ -82,15 +81,7 @@ console.log(errors)
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-         {/* <label htmlFor="avatar">Custom avatar</label>
-        <input
-        class="form-control"
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={avatar_url}
-          onChange={(e) => setAvatar_url(e.target.value)}
-        /> */}
+  
         {errors.length > 0 && (
         <ul style={{ color: "red" }}>
           {errors.map((error) => (
@@ -98,7 +89,6 @@ console.log(errors)
           ))}
         </ul>
       )}
-
             </div>
             <div class="text-center"><Button type="submit" class="btn btn-color px-5 mb-5 w-100">Sign up</Button></div>
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Already have an account?
@@ -112,7 +102,6 @@ console.log(errors)
             </div>
           </form>
         </div>
-
       </div>
     </div>
   </div>

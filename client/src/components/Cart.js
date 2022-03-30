@@ -15,19 +15,6 @@ function Cart({ user, currentCart, setCart }) {
 console.log(user.id)
 console.log(currentCart)
 
-
-    // useEffect(() => {
-    //   fetch(`/users/${user.id}`)
-    //     .then((resp) => resp.json())
-    //     .then((receivedItems) => setOrder(receivedItems.carts.map((c) => { return c.product.name} )));
-    // }, []);
-     
-    // useEffect(() => { 
-    // fetch(`/users/${user.id}`)
-    //     .then((resp) => resp.json())
-    //     .then((receivedItems) => setPrice(receivedItems.cart_sum));
-    // }, []);
-
     if (user && c1 < 2) { 
       fetch(`/users/${user.id}`)
         .then((resp) => resp.json())
@@ -35,77 +22,29 @@ console.log(currentCart)
      
     }
     
-    function test() {
+   function test() {
       setC1(c1 + 1)
       
-      }
+    }
 
-      if (user && c2 < 2) { 
+   if (user && c2 < 2) { 
         fetch(`/users/${user.id}`)
           .then((resp) => resp.json())
           .then((receivedItems) => setPrice(receivedItems.cart_sum), test2());
        
-      }
+   }
 
 
-      function test2() {
+    function test2() {
         setC2(c2 + 1)
-      }
-        // useEffect(() => {
-        //   fetch("/products")
-        //     .then((resp) => resp.json())
-        //     .then((receivedItems) => setItems(receivedItems));
-        // }, []);
-    
-    // console.log(order, price)
-  
-    // function test() {
-    //   fetch(`/carts`)
-    //     .then((resp) => resp.json())
-    //     .then((receivedItems) => setOrder(currentCart.carts.map((c) => { return c.product.name} )));
-    //   fetch(`/carts`)
-    //     .then((resp) => resp.json())
-    //     .then((receivedItems) => setPrice(currentCart.cart_sum));
-    // }
-    
-  
-    
-    
+    }
+
 
 function handleToken(token, addresses) {
 console.log({token, addresses})
 
 
-// function test() {
-  
-//   if (currentCart.cart_count > 0) {
-//   fetch("/carts")
-//     .then((resp) => resp.json())
-//     .then((receivedItems) => setOrder(currentCart.carts.map((c) => { return c.product.name}, setPrice(currentCart.cart_sum))))
-//   } else {
-//     fetch("/carts")
-//     .then((resp) => resp.json())
-//     .then((receivedItems) => console.log())
-//   }
-
-// }
-// test()
-
-
-
-
-
 if (token != null) {
-
-  
-  
-
-  
-  
-
-  
-
-
  
   thankyou()
   CreateHistory()
@@ -137,12 +76,6 @@ if (token != null) {
 function DeleteAll() {
 currentCart.carts.map((c) => { 
 
-
-
-
-
-
-
 fetch(`/carts/${c.id}`, {
   method: "DELETE",
 }).then((res) => {
@@ -162,17 +95,6 @@ fetch(`/carts/${c.id}`, {
 function thankyou() {
   setThankYou(true)
 }
-
-// function handleOrder() {
-//   setOrder(currentCart.carts.map((c) => { return c.product.name}))
-//   console.log(order)
-// }
-
-// function handlePrice() {
-//   setPrice(currentCart.cart_sum)
-// }
-
-
 
 function getUpdatedCart() {
   fetch(`/users/${user.id}`)
@@ -238,34 +160,13 @@ function getUpdatedCart() {
       
         <div className="Cart">
           
-          <div className="Cart-container">
-          
-         
-          
-        
-        
-          
-        
-          
+          <div className="Cart-container">        
           {cards}
           <hr className="totalLine"></hr>
           <span>
             {thankYou ? <> <h1 id="thankyou" style={{ color: 'white'}} >Thank you for your purchess!</h1> </>: null}
-          {/* <b className="cartTotal" style={{ color: 'white'}} >Items in Cart: {currentCart.cart_count}</b>
-            <b className="cartTotal" style={{ marginLeft: "12px", color: 'white' }}>Total:</b>
-            <b className="cartTotal" style={{ marginLeft: "75%", color: 'white' }}>
-            ${currentCart.cart_sum}.00
-            
-            <StripeCheckout style={{ marginLeft: "12px" }}
-            stripeKey="pk_test_51Kftu6EMJuFFtZ9wHfaQkAbiO1ffCOVYN2Us633XKZFzBltBCPTbxM9YL84Q27aEld2eHOR0ScEgvC7xP2TREihc00JMlUTZib"
-            token={handleToken}
-            billingAddress
-            shippingAddress
-            amount={currentCart.cart_sum * 100}
-            name={"cart"}
-            />
-            </b> */}
           </span>
+
           <div className="History">
            <h1 className="pHistory">Purchase History</h1>
           {hCards}</div>

@@ -27,23 +27,21 @@ function Login({ setUser }) {
  
 
   return (
-    <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
+    <div className="container">
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
         
-        <div class="card my-5">
+        <div className="card my-5">
 
-          <form class="card-body cardbody-color p-lg-5" onSubmit={handleSubmit}>
-        
-
-            <div class="text-center">
-            <h3 class="text-center">Welcome Back to GP-You!</h3>
-              <img src="https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+          <form className="card-body cardbody-color p-lg-5" onSubmit={handleSubmit}>
+            <div className="text-center">
+            <h3 className="text-center">Welcome Back to GP-You!</h3>
+              <img src="https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923__340.png" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 width="200px" alt="profile"/>
             </div>
             
 
-            <div class="mb-3">
+            <div className="mb-3">
             <input class="form-control" 
           placeholder="Username"
           type="text"
@@ -53,7 +51,7 @@ function Login({ setUser }) {
           onChange={(e) => setUsername(e.target.value)}
         />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
             <input
           placeholder="Password"
           class="form-control"
@@ -67,25 +65,23 @@ function Login({ setUser }) {
         
 
     </div> 
-    <div class="text-center">        
+    <div className="text-center">        
     <ul style={{ color: "red" }}>
     {errors}
     </ul> 
     <Button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</Button></div>
-    <div id="emailHelp" class="form-text text-center mb-5 text-dark"> Don't have an Account?
-    <ul class="nav justify-content-center">
+    <div id="emailHelp" className="form-text text-center mb-5 text-dark"> Don't have an Account?
+    <ul className="nav justify-content-center">
   
-  <li class="nav-item">
+  <li className="nav-item">
   <Nav>
   <Nav.Link className="nav-link" as={Link} to="/signup">Create an Account</Nav.Link>
   </Nav>
   </li>
 </ul>
-
             </div>
           </form>
         </div>
-
       </div>
     </div>
   </div>

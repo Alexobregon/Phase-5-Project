@@ -5,7 +5,6 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import { Navbar } from "react-bootstrap";
 import "./App.css";
 import Store from "./Store";
 import Cart from "./Cart";
@@ -25,9 +24,6 @@ function App() {
     });
   }, []);
 
-  // style={{ backgroundColor: 'black', height: '975px'}}
-
-  
   return (
     <div>
       <NavBar user={user} setUser={setUser} currentCart={currentCart} setCart={setCart}/>

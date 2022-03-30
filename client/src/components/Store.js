@@ -46,7 +46,6 @@ function Store({ user, setCart, currentCart }) {
     });
   
    
-  
     return <>
   <h1 className="store-center">Welcome to GP-You!</h1>
   <h3 className="store-center">Your one stop shop for the latest graphics cards</h3>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button, Alert } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 function ProductCard({ item: { name, price, description, image_url, id }, user, setCart, currentCart, cartFull, setCartFull }) {
     const [visible, setvisible] = useState(true);
     const [count, setCount] = useState(0);
-    // const [cartFull, setCartFull] = useState(0);
+    
 
     useEffect(() => {
       fetch(`/users/${user.id}`)
@@ -14,8 +14,8 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
    
     
 
-  function handleclick() {
-   
+  function handleclick(e) {
+   e.preventDefault();
     fetch("/carts", {
       method: "POST",
       headers: {
@@ -47,10 +47,6 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
     .then((receivedItems) => setCartFull(receivedItems.cart_count))
 
 
-
-
-// setCartFull(currentCart.cart_count)
-// console.log(cartFull)
   }
 
 
@@ -80,9 +76,6 @@ function ProductCard({ item: { name, price, description, image_url, id }, user, 
         ) : ( 
           <Button  variant="success" style={{marginLeft: "20px", backgroundColor: '#76b900'}} onClick={handleclick}>Add to cart</Button>
          ) }
-
-
-
 
          { visible ? (
          <></>
