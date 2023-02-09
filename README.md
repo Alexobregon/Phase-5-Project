@@ -17,4 +17,8 @@ This site has Stripe built into it using demo mode, allowing mock payments on th
  npm install
  bundle install
  sudo service postgresql start
- npm start --prefix client -->
+ npm start --prefix client 
+ 
+mock payment info for stripe:
+Email: fake@fake.com
+Card info: 4242424 in all fields-->
