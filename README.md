@@ -10,4 +10,11 @@
 GP-You is a template for a store front. I wanted to build a site that could allow various types of products to be sold using this template. Users are required to create an account, with the ability to upload a custom Avatar/Profile picture. Once the you user creates a account or signs in, they are able to browse the store and add or remove products from the cart.
 
 This site has Stripe built into it using demo mode, allowing mock payments on the site.
-
+ 
+ 
+<!--  How to start if cloned: 
+ cd project-template-react-rails-api/
+ npm install
+ bundle install
+ sudo service postgresql start
+ npm start --prefix client -->
