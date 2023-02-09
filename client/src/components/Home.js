@@ -12,7 +12,7 @@ const [errors, setErrors] = useState([]);
 
 
 
-
+console.log(user)
 if (user && c1 === 0) { 
   fetch(`/users/${user.id}`)
     .then((resp) => resp.json())
